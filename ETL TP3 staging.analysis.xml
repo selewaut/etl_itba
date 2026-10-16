@@ -5,8 +5,8 @@
         <author>selewaut</author>
         <updated-date>2026-10-16-03:00</updated-date>
         <metadata-properties>
-            <property name="CoordinatesX.public.hourly_staging">40</property>
             <property name="CoordinatesY.public.hourly_staging">40</property>
+            <property name="CoordinatesX.public.hourly_staging">40</property>
         </metadata-properties>
     </job-metadata>
     <source>
@@ -25,14 +25,13 @@
             <column id="col_units" path="public.hourly_staging.units" type="VARCHAR"/>
         </columns>
     </source>
-    <transformation>
-    </transformation>
+    <transformation/>
     <analysis>
         <analyzer>
             <descriptor ref="Value distribution"/>
             <metadata-properties>
                 <property name="CoordinatesY">200</property>
-                <property name="CoordinatesX">400</property>
+                <property name="CoordinatesX">399</property>
             </metadata-properties>
             <properties>
                 <property name="Record unique values" value="true"/>
@@ -72,7 +71,20 @@
                 <property name="CoordinatesY">440</property>
                 <property name="CoordinatesX">400</property>
             </metadata-properties>
-            <properties/>
+            <properties>
+                <property name="Discriminate text case" value="true"/>
+                <property name="Discriminate negative numbers" value="false"/>
+                <property name="Discriminate decimals" value="true"/>
+                <property name="Enable mixed tokens" value="true"/>
+                <property name="Ignore repeated spaces" value="false"/>
+                <property name="Upper case patterns expand in size" value="false"/>
+                <property name="Lower case patterns expand in size" value="true"/>
+                <property name="Predefined token name" value="&lt;null&gt;"/>
+                <property name="Predefined token regexes" value="&lt;null&gt;"/>
+                <property name="Decimal separator" value="."/>
+                <property name="Thousands separator" value="&amp;#44;"/>
+                <property name="Minus sign" value="-"/>
+            </properties>
             <input ref="col_parametername" name="Column"/>
         </analyzer>
         <analyzer>
@@ -81,7 +93,20 @@
                 <property name="CoordinatesY">560</property>
                 <property name="CoordinatesX">400</property>
             </metadata-properties>
-            <properties/>
+            <properties>
+                <property name="Discriminate text case" value="true"/>
+                <property name="Discriminate negative numbers" value="false"/>
+                <property name="Discriminate decimals" value="true"/>
+                <property name="Enable mixed tokens" value="true"/>
+                <property name="Ignore repeated spaces" value="false"/>
+                <property name="Upper case patterns expand in size" value="false"/>
+                <property name="Lower case patterns expand in size" value="true"/>
+                <property name="Predefined token name" value="&lt;null&gt;"/>
+                <property name="Predefined token regexes" value="&lt;null&gt;"/>
+                <property name="Decimal separator" value="."/>
+                <property name="Thousands separator" value="&amp;#44;"/>
+                <property name="Minus sign" value="-"/>
+            </properties>
             <input ref="col_units" name="Column"/>
         </analyzer>
         <analyzer>
@@ -91,9 +116,9 @@
                 <property name="CoordinatesX">400</property>
             </metadata-properties>
             <properties/>
-            <input ref="col_parametername" name="Columns"/>
-            <input ref="col_units" name="Columns"/>
-            <input ref="col_datum" name="Columns"/>
+            <input ref="col_parametername"/>
+            <input ref="col_units"/>
+            <input ref="col_datum"/>
         </analyzer>
         <analyzer>
             <descriptor ref="Number analyzer"/>
@@ -101,10 +126,42 @@
                 <property name="CoordinatesY">800</property>
                 <property name="CoordinatesX">400</property>
             </metadata-properties>
-            <properties/>
-            <input ref="col_latitude" name="Columns"/>
-            <input ref="col_longitude" name="Columns"/>
-            <input ref="col_sample" name="Columns"/>
+            <properties>
+                <property name="Descriptive statistics" value="true"/>
+            </properties>
+            <input ref="col_latitude"/>
+            <input ref="col_longitude"/>
+            <input ref="col_sample"/>
+        </analyzer>
+        <analyzer>
+            <descriptor ref="Value distribution"/>
+            <metadata-properties>
+                <property name="CoordinatesY">920</property>
+                <property name="CoordinatesX">400</property>
+            </metadata-properties>
+            <properties>
+                <property name="Record unique values" value="true"/>
+                <property name="Record drill-down information" value="true"/>
+                <property name="Top n most frequent values" value="20"/>
+                <property name="Bottom n most frequent values" value="20"/>
+            </properties>
+            <input ref="col_latitude" name="Column"/>
+            <input ref="col_datum" name="Group column"/>
+        </analyzer>
+        <analyzer>
+            <descriptor ref="Value distribution"/>
+            <metadata-properties>
+                <property name="CoordinatesY">564</property>
+                <property name="CoordinatesX">1068</property>
+            </metadata-properties>
+            <properties>
+                <property name="Record unique values" value="true"/>
+                <property name="Record drill-down information" value="true"/>
+                <property name="Top n most frequent values" value="&lt;null&gt;"/>
+                <property name="Bottom n most frequent values" value="&lt;null&gt;"/>
+            </properties>
+            <input ref="col_sample" name="Column"/>
+            <input ref="col_parametername" name="Group column"/>
         </analyzer>
     </analysis>
 </job>
