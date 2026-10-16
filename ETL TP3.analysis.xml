@@ -136,5 +136,109 @@
             <input ref="col_longitudeasnumber" name="Column"/>
             <input ref="col_sampleasnumber" name="Column"/>
         </analyzer>
+        <analyzer requires="outcome_0">
+            <descriptor ref="Completeness analyzer"/>
+            <metadata-properties>
+                <property name="CoordinatesY">660</property>
+                <property name="CoordinatesX">636</property>
+            </metadata-properties>
+            <properties>
+                <property name="Conditions" value="[NOT_BLANK_OR_NULL,NOT_BLANK_OR_NULL,NOT_BLANK_OR_NULL,NOT_BLANK_OR_NULL,NOT_BLANK_OR_NULL,NOT_BLANK_OR_NULL,NOT_BLANK_OR_NULL]"/>
+                <property name="Evaluation mode" value="ANY_FIELD"/>
+            </properties>
+            <input ref="col_latitude" name="Values"/>
+            <input ref="col_longitude" name="Values"/>
+            <input ref="col_parametername" name="Values"/>
+            <input ref="col_datelocal" name="Values"/>
+            <input ref="col_timelocal" name="Values"/>
+            <input ref="col_sample" name="Values"/>
+            <input ref="col_units" name="Values"/>
+        </analyzer>
+        <analyzer requires="outcome_0">
+            <descriptor ref="Pattern finder"/>
+            <metadata-properties>
+                <property name="CoordinatesY">140</property>
+                <property name="CoordinatesX">880</property>
+            </metadata-properties>
+            <properties/>
+            <input ref="col_latitude" name="Column"/>
+        </analyzer>
+        <analyzer requires="outcome_0">
+            <descriptor ref="Pattern finder"/>
+            <metadata-properties>
+                <property name="CoordinatesY">264</property>
+                <property name="CoordinatesX">880</property>
+            </metadata-properties>
+            <properties/>
+            <input ref="col_longitude" name="Column"/>
+        </analyzer>
+        <analyzer requires="outcome_0">
+            <descriptor ref="Pattern finder"/>
+            <metadata-properties>
+                <property name="CoordinatesY">388</property>
+                <property name="CoordinatesX">880</property>
+            </metadata-properties>
+            <properties/>
+            <input ref="col_parametername" name="Column"/>
+        </analyzer>
+        <analyzer requires="outcome_0">
+            <descriptor ref="Pattern finder"/>
+            <metadata-properties>
+                <property name="CoordinatesY">512</property>
+                <property name="CoordinatesX">880</property>
+            </metadata-properties>
+            <properties/>
+            <input ref="col_datelocal" name="Column"/>
+        </analyzer>
+        <analyzer requires="outcome_0">
+            <descriptor ref="Pattern finder"/>
+            <metadata-properties>
+                <property name="CoordinatesY">636</property>
+                <property name="CoordinatesX">880</property>
+            </metadata-properties>
+            <properties/>
+            <input ref="col_timelocal" name="Column"/>
+        </analyzer>
+        <analyzer requires="outcome_0">
+            <descriptor ref="Pattern finder"/>
+            <metadata-properties>
+                <property name="CoordinatesY">760</property>
+                <property name="CoordinatesX">880</property>
+            </metadata-properties>
+            <properties/>
+            <input ref="col_sample" name="Column"/>
+        </analyzer>
+        <analyzer requires="outcome_0">
+            <descriptor ref="Pattern finder"/>
+            <metadata-properties>
+                <property name="CoordinatesY">884</property>
+                <property name="CoordinatesX">880</property>
+            </metadata-properties>
+            <properties/>
+            <input ref="col_units" name="Column"/>
+        </analyzer>
+        <analyzer requires="outcome_0">
+            <descriptor ref="String analyzer"/>
+            <metadata-properties>
+                <property name="CoordinatesY">908</property>
+                <property name="CoordinatesX">636</property>
+            </metadata-properties>
+            <properties/>
+            <input ref="col_parametername" name="Columns"/>
+            <input ref="col_units" name="Columns"/>
+            <input ref="col_datelocal" name="Columns"/>
+            <input ref="col_timelocal" name="Columns"/>
+        </analyzer>
+        <analyzer requires="outcome_0">
+            <descriptor ref="Number analyzer"/>
+            <metadata-properties>
+                <property name="CoordinatesY">1032</property>
+                <property name="CoordinatesX">636</property>
+            </metadata-properties>
+            <properties/>
+            <input ref="col_latitudeasnumber" name="Columns"/>
+            <input ref="col_longitudeasnumber" name="Columns"/>
+            <input ref="col_sampleasnumber" name="Columns"/>
+        </analyzer>
     </analysis>
 </job>
