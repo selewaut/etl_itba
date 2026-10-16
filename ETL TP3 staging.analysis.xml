@@ -1,0 +1,110 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<job xmlns="http://eobjects.org/analyzerbeans/job/1.0">
+    <job-metadata>
+        <job-description>Profiling sobre staging limpia (filtro+conversiones hechos en SQL). Created with DataCleaner Community edition 5.9.0</job-description>
+        <author>selewaut</author>
+        <updated-date>2026-10-16-03:00</updated-date>
+        <metadata-properties>
+            <property name="CoordinatesX.public.hourly_staging">40</property>
+            <property name="CoordinatesY.public.hourly_staging">40</property>
+        </metadata-properties>
+    </job-metadata>
+    <source>
+        <data-context ref="etl3"/>
+        <columns>
+            <column id="col_myid" path="public.hourly_staging.myid" type="INTEGER"/>
+            <column id="col_latitude" path="public.hourly_staging.latitude" type="DOUBLE"/>
+            <column id="col_longitude" path="public.hourly_staging.longitude" type="DOUBLE"/>
+            <column id="col_datum" path="public.hourly_staging.datum" type="VARCHAR"/>
+            <column id="col_parametername" path="public.hourly_staging.parametername" type="VARCHAR"/>
+            <column id="col_datelocal" path="public.hourly_staging.datelocal" type="DATE"/>
+            <column id="col_timelocal" path="public.hourly_staging.timelocal" type="TIME"/>
+            <column id="col_dategtm" path="public.hourly_staging.dategtm" type="DATE"/>
+            <column id="col_timegtm" path="public.hourly_staging.timegtm" type="TIME"/>
+            <column id="col_sample" path="public.hourly_staging.sample" type="DOUBLE"/>
+            <column id="col_units" path="public.hourly_staging.units" type="VARCHAR"/>
+        </columns>
+    </source>
+    <transformation>
+    </transformation>
+    <analysis>
+        <analyzer>
+            <descriptor ref="Value distribution"/>
+            <metadata-properties>
+                <property name="CoordinatesY">200</property>
+                <property name="CoordinatesX">400</property>
+            </metadata-properties>
+            <properties>
+                <property name="Record unique values" value="true"/>
+                <property name="Record drill-down information" value="true"/>
+                <property name="Top n most frequent values" value="20"/>
+                <property name="Bottom n most frequent values" value="20"/>
+            </properties>
+            <input ref="col_latitude" name="Column"/>
+            <input ref="col_longitude" name="Column"/>
+            <input ref="col_parametername" name="Column"/>
+            <input ref="col_datelocal" name="Column"/>
+            <input ref="col_timelocal" name="Column"/>
+            <input ref="col_sample" name="Column"/>
+            <input ref="col_units" name="Column"/>
+        </analyzer>
+        <analyzer>
+            <descriptor ref="Completeness analyzer"/>
+            <metadata-properties>
+                <property name="CoordinatesY">320</property>
+                <property name="CoordinatesX">400</property>
+            </metadata-properties>
+            <properties>
+                <property name="Conditions" value="[NOT_BLANK_OR_NULL,NOT_BLANK_OR_NULL,NOT_BLANK_OR_NULL,NOT_BLANK_OR_NULL,NOT_BLANK_OR_NULL,NOT_BLANK_OR_NULL,NOT_BLANK_OR_NULL]"/>
+                <property name="Evaluation mode" value="ANY_FIELD"/>
+            </properties>
+            <input ref="col_latitude" name="Values"/>
+            <input ref="col_longitude" name="Values"/>
+            <input ref="col_parametername" name="Values"/>
+            <input ref="col_datelocal" name="Values"/>
+            <input ref="col_timelocal" name="Values"/>
+            <input ref="col_sample" name="Values"/>
+            <input ref="col_units" name="Values"/>
+        </analyzer>
+        <analyzer>
+            <descriptor ref="Pattern finder"/>
+            <metadata-properties>
+                <property name="CoordinatesY">440</property>
+                <property name="CoordinatesX">400</property>
+            </metadata-properties>
+            <properties/>
+            <input ref="col_parametername" name="Column"/>
+        </analyzer>
+        <analyzer>
+            <descriptor ref="Pattern finder"/>
+            <metadata-properties>
+                <property name="CoordinatesY">560</property>
+                <property name="CoordinatesX">400</property>
+            </metadata-properties>
+            <properties/>
+            <input ref="col_units" name="Column"/>
+        </analyzer>
+        <analyzer>
+            <descriptor ref="String analyzer"/>
+            <metadata-properties>
+                <property name="CoordinatesY">680</property>
+                <property name="CoordinatesX">400</property>
+            </metadata-properties>
+            <properties/>
+            <input ref="col_parametername" name="Columns"/>
+            <input ref="col_units" name="Columns"/>
+            <input ref="col_datum" name="Columns"/>
+        </analyzer>
+        <analyzer>
+            <descriptor ref="Number analyzer"/>
+            <metadata-properties>
+                <property name="CoordinatesY">800</property>
+                <property name="CoordinatesX">400</property>
+            </metadata-properties>
+            <properties/>
+            <input ref="col_latitude" name="Columns"/>
+            <input ref="col_longitude" name="Columns"/>
+            <input ref="col_sample" name="Columns"/>
+        </analyzer>
+    </analysis>
+</job>
