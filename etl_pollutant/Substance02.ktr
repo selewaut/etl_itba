@@ -1,10 +1,10 @@
-<?xml version='1.0' encoding='UTF-8'?>
+<?xml version="1.0" encoding="UTF-8"?>
 <transformation>
   <info>
     <name>Substance02</name>
-    <description />
-    <extended_description />
-    <trans_version />
+    <description/>
+    <extended_description/>
+    <trans_version/>
     <trans_type>Normal</trans_type>
     <trans_status>0</trans_status>
     <directory>/</directory>
@@ -12,12 +12,12 @@
     </parameters>
     <log>
       <trans-log-table>
-        <connection />
-        <schema />
-        <table />
-        <size_limit_lines />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <size_limit_lines/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -42,37 +42,37 @@
           <id>LINES_READ</id>
           <enabled>Y</enabled>
           <name>LINES_READ</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_WRITTEN</id>
           <enabled>Y</enabled>
           <name>LINES_WRITTEN</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_UPDATED</id>
           <enabled>Y</enabled>
           <name>LINES_UPDATED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_INPUT</id>
           <enabled>Y</enabled>
           <name>LINES_INPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_OUTPUT</id>
           <enabled>Y</enabled>
           <name>LINES_OUTPUT</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>LINES_REJECTED</id>
           <enabled>Y</enabled>
           <name>LINES_REJECTED</name>
-          <subject />
+          <subject/>
         </field>
         <field>
           <id>ERRORS</id>
@@ -126,11 +126,11 @@
         </field>
       </trans-log-table>
       <perf-log-table>
-        <connection />
-        <schema />
-        <table />
-        <interval />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <interval/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -208,10 +208,10 @@
         </field>
       </perf-log-table>
       <channel-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -274,10 +274,10 @@
         </field>
       </channel-log-table>
       <step-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -350,10 +350,10 @@
         </field>
       </step-log-table>
       <metrics-log-table>
-        <connection />
-        <schema />
-        <table />
-        <timeout_days />
+        <connection/>
+        <schema/>
+        <table/>
+        <timeout_days/>
         <field>
           <id>ID_BATCH</id>
           <enabled>Y</enabled>
@@ -402,9 +402,9 @@
       </metrics-log-table>
     </log>
     <maxdate>
-      <connection />
-      <table />
-      <field />
+      <connection/>
+      <table/>
+      <field/>
       <offset>0.0</offset>
       <maxdiff>0.0</maxdiff>
     </maxdate>
@@ -547,11 +547,11 @@
     <type>Janino</type>
     <description>Null-safe source guard: sets source_reason to a diagnostic or null when the row is usable</description>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <formula>
       <field_name>source_reason</field_name>
@@ -559,10 +559,10 @@
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
-      <replace_field />
+      <replace_field/>
     </formula>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -578,16 +578,16 @@
   <step>
     <name>done</name>
     <type>Dummy</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -605,11 +605,11 @@
     <type>FilterRows</type>
     <description>Rejects the CSV header row (name='Parameter Name'); mirrors Geo08 FilterRows reject pattern</description>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <send_true_to>normalize unit</send_true_to>
     <send_false_to>join header reject</send_false_to>
@@ -617,8 +617,8 @@
       <condition>
         <negated>N</negated>
         <leftvalue>name</leftvalue>
-        <function>&lt;&gt;</function>
-        <rightvalue />
+        <function>&lt;></function>
+        <rightvalue/>
         <value>
           <name>constant</name>
           <type>String</type>
@@ -626,12 +626,12 @@
           <length>-1</length>
           <precision>-1</precision>
           <isnull>N</isnull>
-          <mask />
+          <mask/>
         </value>
       </condition>
     </compare>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -649,11 +649,11 @@
     <type>TableInput</type>
     <description>Calls the inserta_substance PSM once per input row; ? binds positionally: name, unit</description>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>OLAP</connection>
     <sql>SELECT id, message FROM inserta_substance(?,?);</sql>
@@ -671,11 +671,11 @@
         <length>9</length>
         <precision>0</precision>
         <origin>inserta substance</origin>
-        <comments />
+        <comments/>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
-        <currency_symbol />
+        <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
         <collator_disabled>Y</collator_disabled>
@@ -694,11 +694,11 @@
         <length>2147483647</length>
         <precision>-1</precision>
         <origin>inserta substance</origin>
-        <comments />
-        <conversion_Mask />
+        <comments/>
+        <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
-        <currency_symbol />
+        <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
         <collator_disabled>Y</collator_disabled>
@@ -711,8 +711,8 @@
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
     </row-meta>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -730,11 +730,11 @@
     <type>JoinRows</type>
     <description>Cartesian join (open run has exactly 1 row): attaches etl_run_id to the header-reject row</description>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <directory>%%java.io.tmpdir%%</directory>
     <prefix>out</prefix>
@@ -743,13 +743,13 @@
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue />
+        <leftvalue/>
         <function>TRUE</function>
-        <rightvalue />
+        <rightvalue/>
       </condition>
     </compare>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -767,11 +767,11 @@
     <type>JoinRows</type>
     <description>Cartesian join (open run has exactly 1 row): attaches etl_run_id to the PSM-reject row</description>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <directory>%%java.io.tmpdir%%</directory>
     <prefix>out</prefix>
@@ -780,13 +780,13 @@
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue />
+        <leftvalue/>
         <function>TRUE</function>
-        <rightvalue />
+        <rightvalue/>
       </condition>
     </compare>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -804,11 +804,11 @@
     <type>JoinRows</type>
     <description>Cartesian join (open run has exactly 1 row): attaches etl_run_id to the source-reject row</description>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <directory>%%java.io.tmpdir%%</directory>
     <prefix>out</prefix>
@@ -817,13 +817,13 @@
     <compare>
       <condition>
         <negated>N</negated>
-        <leftvalue />
+        <leftvalue/>
         <function>TRUE</function>
-        <rightvalue />
+        <rightvalue/>
       </condition>
     </compare>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -839,13 +839,13 @@
   <step>
     <name>normalize name</name>
     <type>Janino</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <formula>
       <field_name>name</field_name>
@@ -855,8 +855,8 @@
       <value_precision>-1</value_precision>
       <replace_field>name</replace_field>
     </formula>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -872,13 +872,13 @@
   <step>
     <name>normalize unit</name>
     <type>Janino</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <formula>
       <field_name>unit</field_name>
@@ -888,8 +888,8 @@
       <value_precision>-1</value_precision>
       <replace_field>unit</replace_field>
     </formula>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -907,16 +907,16 @@
     <type>TableInput</type>
     <description>Opens an etl_run audit row once; RETURNING etl_run_id feeds the reject writes via Join Rows</description>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>OLAP</connection>
     <sql>INSERT INTO etl_run (job_name) VALUES ('Substance02') RETURNING etl_run_id;</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
@@ -929,11 +929,11 @@
         <length>9</length>
         <precision>0</precision>
         <origin>open run</origin>
-        <comments />
+        <comments/>
         <conversion_Mask>####0;-####0</conversion_Mask>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
-        <currency_symbol />
+        <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
         <collator_disabled>Y</collator_disabled>
@@ -946,8 +946,8 @@
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
     </row-meta>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -963,13 +963,13 @@
   <step>
     <name>result ok?</name>
     <type>FilterRows</type>
-    <description />
+    <description/>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <send_true_to>done</send_true_to>
     <send_false_to>join psm reject</send_false_to>
@@ -978,11 +978,11 @@
         <negated>N</negated>
         <leftvalue>message</leftvalue>
         <function>IS NULL</function>
-        <rightvalue />
+        <rightvalue/>
       </condition>
     </compare>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1000,11 +1000,11 @@
     <type>Janino</type>
     <description>Adds stage/reason/raw_payload columns required by etl_rejects</description>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <formula>
       <field_name>stage</field_name>
@@ -1012,7 +1012,7 @@
       <value_type>String</value_type>
       <value_length>30</value_length>
       <value_precision>-1</value_precision>
-      <replace_field />
+      <replace_field/>
     </formula>
     <formula>
       <field_name>reason</field_name>
@@ -1020,7 +1020,7 @@
       <value_type>String</value_type>
       <value_length>80</value_length>
       <value_precision>-1</value_precision>
-      <replace_field />
+      <replace_field/>
     </formula>
     <formula>
       <field_name>raw_payload</field_name>
@@ -1028,10 +1028,10 @@
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
-      <replace_field />
+      <replace_field/>
     </formula>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1049,11 +1049,11 @@
     <type>Janino</type>
     <description>Adds stage/reason/raw_payload columns required by etl_rejects; message already embeds name=/unit= context</description>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <formula>
       <field_name>stage</field_name>
@@ -1061,7 +1061,7 @@
       <value_type>String</value_type>
       <value_length>30</value_length>
       <value_precision>-1</value_precision>
-      <replace_field />
+      <replace_field/>
     </formula>
     <formula>
       <field_name>reason</field_name>
@@ -1069,7 +1069,7 @@
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
-      <replace_field />
+      <replace_field/>
     </formula>
     <formula>
       <field_name>raw_payload</field_name>
@@ -1077,10 +1077,10 @@
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
-      <replace_field />
+      <replace_field/>
     </formula>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1098,11 +1098,11 @@
     <type>Janino</type>
     <description>Adds stage/reason/raw_payload columns required by etl_rejects; reason carries the check source diagnostic</description>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <formula>
       <field_name>stage</field_name>
@@ -1110,7 +1110,7 @@
       <value_type>String</value_type>
       <value_length>30</value_length>
       <value_precision>-1</value_precision>
-      <replace_field />
+      <replace_field/>
     </formula>
     <formula>
       <field_name>reason</field_name>
@@ -1118,7 +1118,7 @@
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
-      <replace_field />
+      <replace_field/>
     </formula>
     <formula>
       <field_name>raw_payload</field_name>
@@ -1126,10 +1126,10 @@
       <value_type>String</value_type>
       <value_length>-1</value_length>
       <value_precision>-1</value_precision>
-      <replace_field />
+      <replace_field/>
     </formula>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1147,11 +1147,11 @@
     <type>FilterRows</type>
     <description>Rows with source_reason = null continue; others are audited into etl_rejects (stage=substance_source)</description>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <send_true_to>drop header</send_true_to>
     <send_false_to>join source reject</send_false_to>
@@ -1160,11 +1160,11 @@
         <negated>N</negated>
         <leftvalue>source_reason</leftvalue>
         <function>IS NULL</function>
-        <rightvalue />
+        <rightvalue/>
       </condition>
     </compare>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1180,19 +1180,19 @@
   <step>
     <name>source substances</name>
     <type>TableInput</type>
-    <description />
+    <description/>
     <distribute>N</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>etl3</connection>
     <sql>SELECT DISTINCT parametername AS name, units AS unit
 FROM "public".hourly_42101_2012_1</sql>
     <limit>0</limit>
-    <lookup />
+    <lookup/>
     <execute_each_row>N</execute_each_row>
     <variables_active>N</variables_active>
     <lazy_conversion_active>N</lazy_conversion_active>
@@ -1205,11 +1205,11 @@ FROM "public".hourly_42101_2012_1</sql>
         <length>30</length>
         <precision>-1</precision>
         <origin>source substances</origin>
-        <comments />
-        <conversion_Mask />
+        <comments/>
+        <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
-        <currency_symbol />
+        <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
         <collator_disabled>Y</collator_disabled>
@@ -1228,11 +1228,11 @@ FROM "public".hourly_42101_2012_1</sql>
         <length>30</length>
         <precision>-1</precision>
         <origin>source substances</origin>
-        <comments />
-        <conversion_Mask />
+        <comments/>
+        <conversion_Mask/>
         <decimal_symbol>.</decimal_symbol>
         <grouping_symbol>,</grouping_symbol>
-        <currency_symbol />
+        <currency_symbol/>
         <trim_type>none</trim_type>
         <case_insensitive>N</case_insensitive>
         <collator_disabled>Y</collator_disabled>
@@ -1245,8 +1245,8 @@ FROM "public".hourly_42101_2012_1</sql>
         <lenient_string_to_number>N</lenient_string_to_number>
       </value-meta>
     </row-meta>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1260,15 +1260,46 @@ FROM "public".hourly_42101_2012_1</sql>
     </GUI>
   </step>
   <step>
+    <name>strip source reason</name>
+    <type>SelectValues</type>
+    <description>Removes source_reason so the inserta substance ? placeholders bind only name, unit (positional binding breaks with a 3rd field)</description>
+    <distribute>Y</distribute>
+    <custom_distribution/>
+    <copies>1</copies>
+    <partitioning>
+      <method>none</method>
+      <schema_name/>
+    </partitioning>
+    <fields>
+      <select_unspecified>N</select_unspecified>
+      <remove>
+        <name>source_reason</name>
+      </remove>
+    </fields>
+    <attributes/>
+    <cluster_schema/>
+    <remotesteps>
+      <input>
+      </input>
+      <output>
+      </output>
+    </remotesteps>
+    <GUI>
+      <xloc>1296</xloc>
+      <yloc>176</yloc>
+      <draw>Y</draw>
+    </GUI>
+  </step>
+  <step>
     <name>write header reject</name>
     <type>ExecSQL</type>
     <description>Inserts the header row into etl_rejects; binds by argument name</description>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>OLAP</connection>
     <execute_each_row>Y</execute_each_row>
@@ -1277,10 +1308,10 @@ FROM "public".hourly_42101_2012_1</sql>
     <quoteString>N</quoteString>
     <sql>INSERT INTO etl_rejects (etl_run_id, stage, raw_payload, reason) VALUES (?,?,?::jsonb,?)</sql>
     <set_params>Y</set_params>
-    <insert_field />
-    <update_field />
-    <delete_field />
-    <read_field />
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
     <arguments>
       <argument>
         <name>etl_run_id</name>
@@ -1295,8 +1326,8 @@ FROM "public".hourly_42101_2012_1</sql>
         <name>reason</name>
       </argument>
     </arguments>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1314,11 +1345,11 @@ FROM "public".hourly_42101_2012_1</sql>
     <type>ExecSQL</type>
     <description>Inserts the PSM error row into etl_rejects; binds by argument name</description>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>OLAP</connection>
     <execute_each_row>Y</execute_each_row>
@@ -1327,10 +1358,10 @@ FROM "public".hourly_42101_2012_1</sql>
     <quoteString>N</quoteString>
     <sql>INSERT INTO etl_rejects (etl_run_id, stage, raw_payload, reason) VALUES (?,?,?::jsonb,?)</sql>
     <set_params>Y</set_params>
-    <insert_field />
-    <update_field />
-    <delete_field />
-    <read_field />
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
     <arguments>
       <argument>
         <name>etl_run_id</name>
@@ -1345,8 +1376,8 @@ FROM "public".hourly_42101_2012_1</sql>
         <name>reason</name>
       </argument>
     </arguments>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1364,11 +1395,11 @@ FROM "public".hourly_42101_2012_1</sql>
     <type>ExecSQL</type>
     <description>Inserts the null/empty name-unit row into etl_rejects; binds by argument name</description>
     <distribute>Y</distribute>
-    <custom_distribution />
+    <custom_distribution/>
     <copies>1</copies>
     <partitioning>
       <method>none</method>
-      <schema_name />
+      <schema_name/>
     </partitioning>
     <connection>OLAP</connection>
     <execute_each_row>Y</execute_each_row>
@@ -1377,10 +1408,10 @@ FROM "public".hourly_42101_2012_1</sql>
     <quoteString>N</quoteString>
     <sql>INSERT INTO etl_rejects (etl_run_id, stage, raw_payload, reason) VALUES (?,?,?::jsonb,?)</sql>
     <set_params>Y</set_params>
-    <insert_field />
-    <update_field />
-    <delete_field />
-    <read_field />
+    <insert_field/>
+    <update_field/>
+    <delete_field/>
+    <read_field/>
     <arguments>
       <argument>
         <name>etl_run_id</name>
@@ -1395,8 +1426,8 @@ FROM "public".hourly_42101_2012_1</sql>
         <name>reason</name>
       </argument>
     </arguments>
-    <attributes />
-    <cluster_schema />
+    <attributes/>
+    <cluster_schema/>
     <remotesteps>
       <input>
       </input>
@@ -1414,34 +1445,5 @@ FROM "public".hourly_42101_2012_1</sql>
   <slave-step-copy-partition-distribution>
   </slave-step-copy-partition-distribution>
   <slave_transformation>N</slave_transformation>
-  <attributes />
-  <step>
-    <name>strip source reason</name>
-    <type>SelectValues</type>
-    <description>Removes source_reason so the inserta substance ? placeholders bind only name, unit (positional binding breaks with a 3rd field)</description>
-    <distribute>Y</distribute>
-    <custom_distribution />
-    <copies>1</copies>
-    <partitioning>
-      <method>none</method>
-      <schema_name />
-    </partitioning>
-    <fields>
-      <select_unspecified>N</select_unspecified>
-      <remove>
-        <name>source_reason</name>
-      </remove>
-    </fields>
-    <attributes />
-    <cluster_schema />
-    <remotesteps>
-      <input />
-      <output />
-    </remotesteps>
-    <GUI>
-      <xloc>1296</xloc>
-      <yloc>176</yloc>
-      <draw>Y</draw>
-    </GUI>
-  </step>
+  <attributes/>
 </transformation>
