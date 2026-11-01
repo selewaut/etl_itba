@@ -4,7 +4,6 @@ __pycache__/
 *.egg-info/
 .venv/
 .uv/
-uv.lock
 
 # macOS
 .DS_Store

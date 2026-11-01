@@ -4,10 +4,15 @@ Repo de la materia ETL – Maestría ITBA.
 
 ## Setup
 
-```bash
-# activar venv
-source .venv/bin/activate
+Requires [uv](https://docs.astral.sh/uv/).
 
-# agregar dependencias, ej:
-uv pip install pandas
+```bash
+# sync venv from lockfile (creates .venv automatically)
+uv sync
+
+# run something
+uv run soundex.py
+
+# add a dependency, ej:
+uv add pandas
 ```
