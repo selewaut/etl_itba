@@ -1,0 +1,33 @@
+
+09:49 AM
+org.neo4j.jdbc.Neo4jDriver
+
+10:28 AM
+MATCH (N :User) detach delete N
+
+11:17 AM
+siii estoy aca! no me anda el microfono
+
+11:17 AM
+creo que estamos todos
+
+11:29 AM
+MATCH ( u :User)-[ lis :listen ]->(:Track) RETURN u, count( distinct lis ) ORDER BY u
+
+11:31 AM
+MATCH ( u :User)-[ lis :listen ]->(:Track) RETURN u.age, count( distinct lis )
+
+11:35 AM
+MATCH ( u :User)-[ lis :listen ]->(t :Track) WHERE lis.repeated >= 15 RETURN lis.repeated ,u, t.trackname
+
+11:43 AM
+MATCH ( u1 :User)-[ lis1 :listen ]->(t :Track) WHERE lis1.repeated >= 15 MATCH ( u2 :User)-[ lis2 :listen ]->(t :Track) WHERE lis2.repeated >= 15 AND u1._id < u2._id RETURN u1._id, lis1.repeated, u2._id, t, lis2.repeated
+
+11:45 AM
+MATCH ( u1 :User)-[ lis1 :listen ]->(t :Track) WHERE lis1.repeated >= 10 MATCH ( u2 :User)-[ lis2 :listen ]->(t :Track) WHERE lis2.repeated = lis1.repeated AND u1._id < u2._id RETURN u1._id, lis1.repeated, u2._id, t, lis2.repeated
+
+11:52 AM
+MATCH ( u1 :User)-[ lis1 :listen ]->(t :Track) with u1, count(lis1) as qty where qty > 40 return u1, qty
+
+11:55 AM
+MATCH ( u1 :User)-[ lis1 :listen ]->(t :Track) WHERE lis1.repeated >= 15 MATCH ( u2 :User)-[ lis2 :listen ]->(t :Track) WHERE lis2.repeated >= 15 AND u1._id < u2._id RETURN u1._id, lis1.repeated, u2._id, t, lis2.repeated
